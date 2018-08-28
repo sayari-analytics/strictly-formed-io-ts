@@ -1,0 +1,45 @@
+{
+  "name": "strictly-formed-io-ts",
+  "version": "0.0.1",
+  "description": "io-ts wrapper for strictly-formed, a statically typed form library for typescript",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && tsc",
+    "lint": "tslint --config ./tslint.json --project ./tsconfig.json --format stylish",
+    "test": "node test/",
+    "validate": "npm run lint && npm run test",
+    "deploy:patch": "npm run validate && npm version patch && npm run build && npm publish && git push --follow-tags",
+    "deploy:minor": "npm run validate && npm version minor && npm run build && npm publish && git push --follow-tags",
+    "deploy:major": "npm run validate && npm version major && npm run build && npm publish && git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sayari-analytics/strictly-formed-io-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "form",
+    "io-ts",
+    "types",
+    "validation"
+  ],
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "author": "James Conkling <james.lane.conkling@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sayari-analytics/strictly-formed-io-ts/issues"
+  },
+  "homepage": "https://github.com/sayari-analytics/strictly-formed-io-ts#README",
+  "devDependencies": {
+    "@types/react": "^16.4.9",
+    "react": "^16.4.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.14.0",
+    "typescript": "^3.0.1"
+  }
+}
