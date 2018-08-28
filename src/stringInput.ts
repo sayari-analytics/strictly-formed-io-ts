@@ -12,7 +12,7 @@ export type Props<T> = Omit<StringInputProps, 'onChange' | 'onSubmit'> & {
 }
 
 
-export class StringInput<T> extends PureComponent<Props<T>> {
+class StringInput<T> extends PureComponent<Props<T>> {
   private onChange = (value: string | undefined) => this.props.onChange(this.props.type.decode(value), value)
 
   private onSubmit = (value: string | undefined) => {
@@ -36,3 +36,6 @@ export class StringInput<T> extends PureComponent<Props<T>> {
     );
   }
 }
+
+
+export default StringInput;
